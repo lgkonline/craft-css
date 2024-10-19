@@ -1,20 +1,43 @@
 {
-    "name": "bootstrap-cli",
+    "name": "craft-css",
     "version": "1.0.0",
-    "description": "CLI to customize Bootstrap",
+    "description": "CLI that helps you to add Bootstrap CSS and customize it",
+    "keywords": [
+        "bootstrap",
+        "ui",
+        "css",
+        "sass",
+        "scss",
+        "craftcss"
+    ],
+    "files": [
+        "dist",
+        "styles"
+    ],
     "bin": {
-        "bootstrap-cli": "./dist/index.js"
+        "craft-css": "./dist/index.js"
     },
     "scripts": {
         "build": "tsc",
         "start": "ts-node src/index.ts",
         "build-and-run": "npm run build && node dist/index.js"
     },
-    "author": "",
-    "license": "ISC",
+    "author": {
+        "name": "LGK",
+        "url": "https://lgk.io"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/lgkonline/craft-css.git"
+    },
+    "license": "MIT",
     "dependencies": {
-        "bootstrap": "^5.3.3",
+        "autoprefixer": "^10.4.20",
+        "bootstrap": "5.3",
         "commander": "^12.1.0",
+        "postcss": "^8.4.47",
+        "postcss-minify": "^1.1.0",
+        "postcss-only-vars": "^1.0.0",
         "sass": "1.77.6"
     },
     "devDependencies": {

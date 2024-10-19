@@ -1,30 +1,18 @@
 #!/usr/bin/env node
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 const commander_1 = require("commander");
-const scssToCss_1 = require("./scssToCss");
-const program = new commander_1.Command();
-program.version("1.0.0");
-program
-    .command("greet [name]")
-    .description("Greet the user by name")
-    .action((name) => {
-    console.log(`Hello, ${name || "World"}!`);
-});
-program
-    .command("compile [scss]")
-    .option("-o, --output <string>", "path to output file", "out.css")
-    .description("Creates a CSS file")
-    .action((scss, options) => {
-    try {
-        const css = (0, scssToCss_1.scssToCss)(`$primary: blue;`, options.output);
-    }
-    catch (error) {
-        console.error(`Error executing command: ${error.message}`);
-    }
-});
-// Parse the arguments passed to the CLI
-program.parse(process.argv);
+const compile_1 = require("./compile");
+const package_json_1 = __importDefault(require("../package.json"));
+const program = new commander_1.Command()
+    .name("craft-css")
+    .description("helps you to add Bootstrap CSS and customize it")
+    .version(package_json_1.default.version || "1.0.0", "-v, --version", "display the version number")
+    .addCommand(compile_1.compile)
+    .parse(process.argv);
 // Show help if no command is provided
 if (!process.argv.slice(2).length) {
     program.outputHelp();

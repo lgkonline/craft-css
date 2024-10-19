@@ -1,0 +1,25 @@
+{
+    "name": "bootstrap-cli",
+    "version": "1.0.0",
+    "description": "CLI to customize Bootstrap",
+    "bin": {
+        "bootstrap-cli": "./dist/index.js"
+    },
+    "scripts": {
+        "build": "tsc",
+        "start": "ts-node src/index.ts",
+        "build-and-run": "npm run build && node dist/index.js"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "bootstrap": "^5.3.3",
+        "commander": "^12.1.0",
+        "sass": "1.77.6"
+    },
+    "devDependencies": {
+        "@types/node": "^22.7.7",
+        "ts-node": "^10.9.2",
+        "typescript": "^5.6.3"
+    }
+}
